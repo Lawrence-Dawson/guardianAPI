@@ -18,7 +18,7 @@ prettyPrinter.printToPage = function(id, html){
 prettyPrinter.createTitle = function(id, content){
   var createdElement = document.createElement(this.title);
   createdElement.appendChild(document.createTextNode(content));
-  createdElement.className = "articleTitle";
+  createdElement.className = "storyTitle";
   prettyPrinter.printToPage(id, createdElement);
 },
 
@@ -32,7 +32,7 @@ prettyPrinter.createImg = function(id, content){
 prettyPrinter.createBody = function(id, content){
   var createdElement = document.createElement(this.body);
   createdElement.appendChild(document.createTextNode(content));
-  createdElement.className = "articleBody";
+  createdElement.className = "storyBody";
   prettyPrinter.printToPage(id, createdElement);
 },
 

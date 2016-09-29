@@ -21,5 +21,4 @@ function printStory(id, story) {
   prettyPrinter.createLink(id, story.url);
 }
 
-printStory(1, story);
-printStory(2, story);
+printStories([story, story]);

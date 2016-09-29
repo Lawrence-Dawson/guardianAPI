@@ -1,0 +1,19 @@
+#container {
+  margin: 0 auto;
+  width: 720px;
+  margin-top: 3em;
+}
+
+.storyTitle {
+  font-family: "Playfair Display";
+  font-size: 2.5em;
+}
+
+.storyBody {
+  font-family: "Raleway";
+}
+
+.storyImg {
+  min-width: 720px;
+  max-height: 300px;
+}
