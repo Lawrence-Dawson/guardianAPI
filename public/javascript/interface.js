@@ -7,12 +7,19 @@ var rawStory = {
 
 story = new Story(rawStory);
 
-function printStory(story) {
-  prettyPrinter.createTitle(story.title);
-  prettyPrinter.createImg(story.img);
-  prettyPrinter.createBody(story.body);
-  prettyPrinter.createLink(story.url);
+function printStories(array) {
+  array.forEach(function(story, index){
+    printStory(index, story);
+  });
 }
 
-printStory(story);
-printStory(story);
+function printStory(id, story) {
+  prettyPrinter.createDiv(id);
+  prettyPrinter.createTitle(id, story.title);
+  prettyPrinter.createImg(id, story.img);
+  prettyPrinter.createBody(id, story.body);
+  prettyPrinter.createLink(id, story.url);
+}
+
+printStory(1, story);
+printStory(2, story);

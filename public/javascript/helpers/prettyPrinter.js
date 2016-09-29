@@ -5,35 +5,41 @@ var prettyPrinter = {
   "url": "a"
 };
 
+prettyPrinter.createDiv = function(id) {
+  var createdElement = document.createElement("div");
+  createdElement.setAttribute("id", id);
+  document.getElementById("story").appendChild(createdElement);
+}
+
 prettyPrinter.printToPage = function(id, html){
   document.getElementById(id).appendChild(html);
 },
 
-prettyPrinter.createTitle = function(content){
+prettyPrinter.createTitle = function(id, content){
   var createdElement = document.createElement(this.title);
   createdElement.appendChild(document.createTextNode(content));
   createdElement.className = "articleTitle";
-  prettyPrinter.printToPage("story", createdElement);
+  prettyPrinter.printToPage(id, createdElement);
 },
 
-prettyPrinter.createImg = function(content){
+prettyPrinter.createImg = function(id, content){
   var createdElement = document.createElement(this.img);
   createdElement.setAttribute("src", content);
   createdElement.className = "storyImg";
-  prettyPrinter.printToPage("story", createdElement);
+  prettyPrinter.printToPage(id, createdElement);
 },
 
-prettyPrinter.createBody = function(content){
+prettyPrinter.createBody = function(id, content){
   var createdElement = document.createElement(this.body);
   createdElement.appendChild(document.createTextNode(content));
   createdElement.className = "articleBody";
-  prettyPrinter.printToPage("story", createdElement);
+  prettyPrinter.printToPage(id, createdElement);
 },
 
-prettyPrinter.createLink = function(content){
+prettyPrinter.createLink = function(id, content){
   var createdElement = document.createElement(this.url);
   createdElement.appendChild(document.createTextNode("Read more"));
   createdElement.setAttribute("href", content);
   createdElement.className = "readMore";
-  prettyPrinter.printToPage("story", createdElement);
+  prettyPrinter.printToPage(id, createdElement);
 }
