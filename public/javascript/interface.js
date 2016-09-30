@@ -15,7 +15,7 @@ function printStory(id, story) {
   prettyPrinter.createLink(id, story.url);
 }
 
-var sports = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=sports?show-fields=body";
+var sports = "https://spy-api.herokuapp.com/apis?api-key=b202a9029f8b54415a7cb0e2e775536c00920833&json=AllSport";
 
 
 function getAllStories(url) {
