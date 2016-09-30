@@ -6,21 +6,15 @@ var sports = "https://spy-api.herokuapp.com/apis?api-key=b202a9029f8b54415a7cb0e
 
 storyFactory = new StoryFactory(Story);
 
-function getStoryUrls(topic) {
+function generatePage(topic) {
   return getStories(topic).then(function(response) {
     return storiesList(response);
-  });
-}
-
-function getAllStories(list) {
-  var storiesArray = [];
-  return new Promise(function(resolve, reject) {
-    list.forEach(function(item) {
+  }).then(function(response) {
+    response.forEach(function(item, index) {
       getStories(item).then(function(response) {
         var parsedStory = storyFactory.parse(response);
-        storiesArray.push(parsedStory);
+        printStory(index, parsedStory);
       });
-    resolve(storiesArray);
     });
   });
 }
@@ -31,18 +25,6 @@ function printStory(id, story) {
   prettyPrinter.createImg(id, story.img);
   prettyPrinter.createBody(id, story.body);
   prettyPrinter.createLink(id, story.url);
-}
-
-function generatePage(topic) {
-  getStoryUrls(topic).then(function(response) {
-    getAllStories(response).then(function(response) {
-      this.stuff = response;
-      this.stuff.forEach(function(story, index) {
-        console.log(story);
-        printStory(index, story);
-      });
-    });
-  });
 }
 
 function ready(fn) {
