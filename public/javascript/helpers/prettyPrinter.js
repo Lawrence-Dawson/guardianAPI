@@ -9,7 +9,7 @@ prettyPrinter.createDiv = function(id) {
   var createdElement = document.createElement("div");
   createdElement.setAttribute("id", id);
   document.getElementById("story").appendChild(createdElement);
-}
+},
 
 prettyPrinter.printToPage = function(id, html){
   document.getElementById(id).appendChild(html);
@@ -31,7 +31,7 @@ prettyPrinter.createImg = function(id, content){
 
 prettyPrinter.createBody = function(id, content){
   var createdElement = document.createElement(this.body);
-  createdElement.appendChild(document.createTextNode(content));
+  createdElement.innerHTML = content;
   createdElement.className = "storyBody";
   prettyPrinter.printToPage(id, createdElement);
 },

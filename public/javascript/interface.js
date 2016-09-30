@@ -1,11 +1,5 @@
-var rawStory = {
-  "title": "Leaping Salmon Invade Thames",
-  "img": "http://i.imgur.com/akX26jc.jpg",
-  "body": "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?",
-  "url": "http://www.guardian.co.uk"
-};
 
-story = new Story(rawStory);
+storyFactory = new StoryFactory(Story);
 
 function printStories(array) {
   array.forEach(function(story, index){
@@ -21,4 +15,20 @@ function printStory(id, story) {
   prettyPrinter.createLink(id, story.url);
 }
 
-printStories([story, story]);
+var sports = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=sports?show-fields=body";
+
+
+function getAllStories(url) {
+  getStories(url).then(function(response) {
+    var storiesURLs = storiesList(response);
+     storiesURLs.forEach(function(url) {
+       getStories(url).then(function(response){
+         var story = storyFactory.parse(response);
+         console.log(story);
+         printStory(Math.random(), story);
+  });
+});
+});
+}
+
+getAllStories(sports);
