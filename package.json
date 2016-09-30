@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/lawrenced87/GuardianAPI/issues"
   },
-  "homepage": "https://github.com/lawrenced87/GuardianAPI#readme"
+  "homepage": "https://github.com/lawrenced87/GuardianAPI#readme",
+  "dependencies": {
+    "guardian-js": "^1.0.7",
+    "xmlhttprequest": "^1.8.0"
+  }
 }
