@@ -20,6 +20,7 @@ var business = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=htt
 var sports = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=sport?show-fields=body;";
 var technology = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=technology?show-fields=body";
 
+
 function getAllStories(url) {
   getStories(url).then(function(response) {
     var storiesURLs = storiesList(response);
