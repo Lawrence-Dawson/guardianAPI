@@ -15,8 +15,12 @@ function printStory(id, story) {
   prettyPrinter.createLink(id, story.url);
 }
 
-var sports = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=sports?show-fields=body";
+var politics = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=politics?show-fields=body";
+var business = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=business?show-fields=body";
+var sports = "https://spy-api.herokuapp.com/apis?api-key=b202a9029f8b54415a7cb0e2e775536c00920833&json=AllSport";
+var technology = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=technology?show-fields=body";
 
+//var original = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?q=technology?show-fields=body"
 
 function getAllStories(url) {
   getStories(url).then(function(response) {
@@ -24,11 +28,8 @@ function getAllStories(url) {
      storiesURLs.forEach(function(url) {
        getStories(url).then(function(response){
          var story = storyFactory.parse(response);
-         console.log(story);
          printStory(Math.random(), story);
   });
 });
 });
 }
-
-getAllStories(sports);
